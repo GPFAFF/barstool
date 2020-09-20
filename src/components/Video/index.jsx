@@ -1,15 +1,18 @@
 import React from 'react'
 import useSWR from 'swr'
 import { fetcher } from '../hooks';
+import Error from '../Error';
 import Loading from '../Loading';
 import './index.scss';
 
 export const Video = ({ videoId, image }) => {
-  const { data } = useSWR(`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${videoId}&key=${process.env.REACT_APP_API_KEY}`, fetcher);
+  const { data, error } = useSWR(`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${videoId}&key=${process.env.REACT_APP_API_KEY}`, fetcher);
 
   const URL = `https://youtube.com/embed/${videoId}`;
 
   if (!data) return <Loading />;
+
+  if (error) return <Error />;
 
   const { items } = data;
 
