@@ -1,7 +1,7 @@
 import React from 'react'
 import useSWR from 'swr'
 import { fetcher } from '../hooks';
-import Error from '../Error';
+import { Error } from '../Error';
 import Loading from '../Loading';
 import './index.scss';
 
