@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-         Barstool Sports Tech
+         <h1>Barstool Sports Tech</h1>
       </header>
       <div role="main">
         <Wrapper />
